@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SettlementController;
 use App\Http\Controllers\SettlementOverviewController;
 use App\Http\Controllers\TransactionOverviewController;
@@ -27,3 +28,4 @@ Route::get('/settlement-overview-listing', [SettlementOverviewController::class,
 
 Route::get('/transaction-payments-listing', [TransactionPaymentController::class, 'listing']);
 Route::get('/transaction-overview-listing', [TransactionOverviewController::class, 'listing']);
+Route::get('/dashboard-data-listing', [DashboardController::class, 'listing']);
