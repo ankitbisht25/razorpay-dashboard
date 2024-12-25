@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\SettlementController;
+use App\Http\Controllers\SettlementOverviewController;
+use App\Http\Controllers\TransactionOverviewController;
+use App\Http\Controllers\TransactionPaymentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +21,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/settlement-payments-listing', [SettlementController::class, 'listing']);
+Route::get('/settlement-overview-listing', [SettlementOverviewController::class, 'listing']);
+
+Route::get('/transaction-payments-listing', [TransactionPaymentController::class, 'listing']);
+Route::get('/transaction-overview-listing', [TransactionOverviewController::class, 'listing']);
