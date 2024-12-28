@@ -71,13 +71,18 @@
                                             required>
                                     </div>
                                     <div class="col-md-3">
+                                        <label for="" class="m-2 fw-bold">Customer Email <span
+                                                style="font-size: 14px;font-weight: 600;color: #ee1201;">*</span></label><br>
+                                        <input name="customer_email" type="text" class="form-control"
+                                            placeholder="Enter Customer Email" value="{{ @$payment->customer_email }}"
+                                            required>
+                                    </div>
+                                    <div class="col-md-3">
                                         <label for="" class="m-2 fw-bold">Amount <span
                                                 style="font-size: 14px;font-weight: 600;color: #ee1201;">*</span></label><br>
                                         <input type="number" class="form-control" name="amount" id=""
                                             placeholder="Enter Amount" value="{{ @$payment->amount }}" required>
                                     </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-md-3">
                                         <label for="" class="m-2 fw-bold">Status <span
                                                 style="font-size: 14px;font-weight: 600;color: #ee1201;">*</span></label><br>

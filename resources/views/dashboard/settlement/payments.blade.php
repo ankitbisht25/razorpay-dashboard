@@ -91,7 +91,7 @@
                                         <select id="" name="duration" class="form-control"
                                             style="background-color:white;" required>
                                             <option value="">Select Duration</option>
-                                            <option value="Today" {{ old('duration', @$payment->duration) == 'Today' ? 'selected' : '' }}>Today</option>
+                                            <option value="All Time" {{ old('duration', @$payment->duration) == 'All Time' ? 'selected' : '' }}>All Time</option>
                                             <option value="Last 7 days" {{ old('duration', @$payment->duration) == 'Last 7 days' ? 'selected' : '' }}>Last 7 days</option>
                                             <option value="Last 30 days" {{ old('duration', @$payment->duration) == 'Last 30 days' ? 'selected' : '' }}>Last 30 days</option>
                                             <option value="Last 90 days" {{ old('duration', @$payment->duration) == 'Last 90 days' ? 'selected' : '' }}>Last 90 days</option>

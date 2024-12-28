@@ -18,6 +18,7 @@ class CreateTransactionPaymentsTable extends Migration
             $table->string('payment_id');
             $table->string('bank_rrn');
             $table->string('customer_detail');
+            $table->string('customer_email');
             $table->decimal('amount', 10, 2);
             $table->timestamp('created_on')->useCurrent();
             $table->string('status');
