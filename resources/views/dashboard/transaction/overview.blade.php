@@ -83,6 +83,11 @@
                                                 placeholder="Enter Failed Payments" required>
                                         </div>
                                         <div class="col-md-3">
+                                            <label for="" class="m-2 fw-bold">Orders</label><br>
+                                            <input type="number" class="form-control" name="orders" id=""
+                                                placeholder="Enter Orders" required>
+                                        </div>
+                                        <div class="col-md-3">
                                             <label for="" class="m-2 fw-bold">Duration <span
                                                     style="font-size: 14px;font-weight: 600;color: #ee1201;">*</span></label><br>
                                             <select id="" name="duration" class="form-control"
@@ -92,6 +97,9 @@
                                                 <option value="Last 7 days">Last 7 days</option>
                                                 <option value="Last 30 days">Last 30 days</option>
                                                 <option value="Last 90 days">Last 90 days</option>
+                                                <option value="Jan 2024 - till date">Jan 2024 - till date</option>
+                                                <option value="This financial year">This financial year</option>
+                                                <option value="Custom">Custom</option>
                                             </select>
                                         </div>
                                     </div>

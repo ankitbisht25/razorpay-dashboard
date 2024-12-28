@@ -23,6 +23,7 @@ class CreateTransactionOverviewsTable extends Migration
             $table->integer('open');
             $table->integer('under_review');
             $table->integer('failed_payments');
+            $table->decimal('orders', 10, 2);
             $table->string('duration');
             $table->timestamps();
         });
