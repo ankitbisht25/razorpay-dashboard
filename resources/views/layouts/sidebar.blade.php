@@ -73,6 +73,14 @@
                     <li class="nav-item"><a class="nav-link" href="{{url('/settlement-payments-list')}}"><i class="ti-control-record"></i>Payments</a></li>
                 </ul>
             </li>
+            <li>
+                <a href="javascript: void(0);"><i data-feather="grid" class="align-self-center menu-icon"></i><span>Youtube</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                <ul class="nav-second-level" aria-expanded="false">
+                    <li class="nav-item"><a class="nav-link" href="{{url('/youtube/user-profiles')}}"><i class="ti-control-record"></i>Profile</a></li>
+                        
+                    <li class="nav-item"><a class="nav-link" href="{{url('/youtube/user-profiles')}}"><i class="ti-control-record"></i>Views</a></li>
+                </ul>
+            </li>
 
             <hr class="hr-dashed hr-menu">          
         </ul>
