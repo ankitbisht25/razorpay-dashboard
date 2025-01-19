@@ -9,11 +9,11 @@
                     <div class="page-title-box">
                         <div class="row mb-3">
                             <div class="col">
-                                <h4 class="page-title">User Profile List</h4>
+                                <h4 class="page-title">User Videos List</h4>
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="javascript:void(0);">Dastone</a></li>
                                     <li class="breadcrumb-item"><a href="javascript:void(0);">Youtube</a></li>
-                                    <li class="breadcrumb-item active">Profile List</li>
+                                    <li class="breadcrumb-item active">Videos List</li>
                                 </ol>
                             </div><!--end col-->
                             <div class="col-auto align-self-center">
@@ -36,8 +36,8 @@
                         @endif
 
                         <div class="row mt-2">
-                            <a href="{{ url('youtube/user-profiles/create') }}" class="text-light btn btn-primary mx-auto btn-icon-text">
-                                Add New User Profile
+                            <a href="{{ url('youtube/user-videos/create') }}" class="text-light btn btn-primary mx-auto btn-icon-text">
+                                Add New User Video
                             </a>
                         </div>
                     </div><!--end page-title-box-->
@@ -51,24 +51,26 @@
                             <thead>
                                 <tr>
                                     <th>S. No.</th>
-                                    <th>Channel Name</th>
-                                    <th>Subscribers</th>
+                                    <th>Thumbnail</th>
+                                    <th>Title</th>
+                                    <th>Date</th>
+                                    <th>Average View</th>
                                     <th>Views</th>
-                                    <th>Profile Logo</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($profiles as $profile)
+                                @foreach ($videos as $video)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $profile->channel_name }}</td>
-                                        <td>{{ $profile->subscribers }}</td>
-                                        <td>{{ $profile->views }}</td>
-                                        <td><img src="{{ asset('storage/' . $profile->profile_logo) }}" alt="thumbnail" style="width: 60px; height:auto;"></td>
+                                        <td><img src="{{ asset('storage/' . $video->thumbnail) }}" alt="thumbnail" style="width: 60px; height:auto;"></td>
+                                        <td>{{ $video->title }}</td>
+                                        <td>{{ $video->date }}</td>
+                                        <td>{{ $video->average_view }}</td>
+                                        <td>{{ $video->views }}</td>
                                         <td>
-                                            <a href="{{ route('youtube.user-profiles.edit', $profile->id) }}"><i class="las la-pen text-secondary font-16"></i></a>
-                                            <a href="{{ route('youtube.user-profiles.destroy', $profile->id) }}"><i class="las la-trash-alt text-secondary font-16"></i></a>
+                                            <a href="{{ route('youtube.user-videos.edit', $video->id) }}"><i class="las la-pen text-secondary font-16"></i></a>
+                                            <a href="{{ route('youtube.user-videos.destroy', $video->id) }}"><i class="las la-trash-alt text-secondary font-16"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach

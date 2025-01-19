@@ -6,6 +6,8 @@ use App\Http\Controllers\SettlementOverviewController;
 use App\Http\Controllers\TransactionOverviewController;
 use App\Http\Controllers\TransactionPaymentController;
 use App\Http\Controllers\Youtube\UserProfileController;
+use App\Http\Controllers\Youtube\VideoController;
+use App\Http\Controllers\Youtube\ViewsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,24 +62,46 @@ Route::middleware(['auth'])->group(function () {
         'prefix' => 'youtube',
         'as' => 'youtube.'
     ], function () {
-        Route::get('/user-profiles', [UserProfileController::class, 'index'])->name('user-profiles.index');
 
-        // Show the form for creating a new resource.
-        Route::get('/user-profiles/create', [UserProfileController::class, 'create'])->name('user-profiles.create');
+        Route::group([
+            'prefix' => 'user-profiles',
+            'as' => 'user-profiles.'
+        ], function () {
+            Route::get('/', [UserProfileController::class, 'index'])->name('index');
+            Route::get('/create', [UserProfileController::class, 'create'])->name('create');
+            Route::post('/', [UserProfileController::class, 'store'])->name('store');
+            Route::get('/{id}', [UserProfileController::class, 'show'])->name('show');
+            Route::get('/{user_profile}/edit', [UserProfileController::class, 'edit'])->name('edit');
+            Route::post('/{id}', [UserProfileController::class, 'update'])->name('update');
+            Route::get('/delete/{id}', [UserProfileController::class, 'destroy'])->name('destroy');
+        });
 
-        // Store a newly created resource in storage.
-        Route::post('/user-profiles', [UserProfileController::class, 'store'])->name('user-profiles.store');
+        
+        Route::group([
+            'prefix' => 'user-views',
+            'as' => 'user-views.'
+        ], function () {
+            Route::get('/', [ViewsController::class, 'index'])->name('index');
+            Route::get('/create', [ViewsController::class, 'create'])->name('create');
+            Route::post('/', [ViewsController::class, 'store'])->name('store');
+            Route::get('/{id}', [ViewsController::class, 'show'])->name('show');
+            Route::get('/{user_profile}/edit', [ViewsController::class, 'edit'])->name('edit');
+            Route::post('/{id}', [ViewsController::class, 'update'])->name('update');
+            Route::get('/delete/{id}', [ViewsController::class, 'destroy'])->name('destroy');
+        });
+        
+        Route::group([
+            'prefix' => 'user-videos',
+            'as' => 'user-videos.'
+        ], function () {
+            Route::get('/', [VideoController::class, 'index'])->name('index');
+            Route::get('/create', [VideoController::class, 'create'])->name('create');
+            Route::post('/', [VideoController::class, 'store'])->name('store');
+            Route::get('/{id}', [VideoController::class, 'show'])->name('show');
+            Route::get('/{user_profile}/edit', [VideoController::class, 'edit'])->name('edit');
+            Route::post('/{id}', [VideoController::class, 'update'])->name('update');
+            Route::get('/delete/{id}', [VideoController::class, 'destroy'])->name('destroy');
+        });
 
-        // Display the specified resource.
-        Route::get('/user-profiles/{id}', [UserProfileController::class, 'show'])->name('user-profiles.show');
-
-        // Show the form for editing the specified resource.
-        Route::get('/user-profiles/{user_profile}/edit', [UserProfileController::class, 'edit'])->name('user-profiles.edit');
-
-        // Update the specified resource in storage.
-        Route::post('/user-profiles/{id}', [UserProfileController::class, 'update'])->name('user-profiles.update');
-
-        // Remove the specified resource from storage.
-        Route::get('/user-profile-delete/{id}', [UserProfileController::class, 'destroy'])->name('user-profiles.destroy');
     });
 });

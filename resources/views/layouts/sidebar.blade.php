@@ -78,7 +78,9 @@
                 <ul class="nav-second-level" aria-expanded="false">
                     <li class="nav-item"><a class="nav-link" href="{{url('/youtube/user-profiles')}}"><i class="ti-control-record"></i>Profile</a></li>
                         
-                    <li class="nav-item"><a class="nav-link" href="{{url('/youtube/user-profiles')}}"><i class="ti-control-record"></i>Views</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url('/youtube/user-views')}}"><i class="ti-control-record"></i>Views</a></li>
+
+                    <li class="nav-item"><a class="nav-link" href="{{url('/youtube/user-videos')}}"><i class="ti-control-record"></i>Videos</a></li>
                 </ul>
             </li>
 
