@@ -127,6 +127,13 @@
                                             <option value="11" {{ old('duration', @$view->duration) == '11' ? 'selected' : '' }}>Custom</option>
                                         </select>
                                     </div>
+                                    <div class="col-md-6">
+                                        <label for="" class="m-2 fw-bold">Graph Data <span
+                                                style="font-size: 14px;font-weight: 600;color: #ee1201;">*</span></label><br>
+                                        <textarea class="form-control" name="graph_data" id=""
+                                            placeholder="Enter Graph Data"
+                                            required>{{ @$view->graph_data }}</textarea>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -23,6 +23,7 @@ class CreateViewsTable extends Migration
             $table->string('subscribers_label')->nullable();
             $table->string('new_data')->nullable();
             $table->string('new_data_label')->nullable();
+            $table->text('graph_data')->nullable();
             $table->string('duration');
             $table->timestamps();
         });

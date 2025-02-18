@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Youtube;
 
 use App\Http\Controllers\Controller;
 use App\Models\Youtube\View;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ViewsController extends Controller
 {
@@ -17,6 +19,30 @@ class ViewsController extends Controller
     public function create()
     {
         return view('youtube.views.create');
+    }
+    
+    public function listing(Request $request)
+    {
+        try {
+            $whereFilters = [];
+            if ($request->filters) {
+                foreach ($request->filters as $key => $value) {
+                    $whereFilters[] = [$key, $value];
+                }
+            }
+            $views = View::where($whereFilters)->latest('id')->first();
+
+            return response()->json([
+                'status' => 'success',
+                'data' => $views
+            ], 200);
+        } catch (Exception $e) {
+            Log::error('Error fetching views: ' . $e->getMessage());
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Something went wrong while fetching views'
+            ], 500);
+        }
     }
 
     public function store(Request $request)
