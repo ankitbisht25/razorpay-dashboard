@@ -108,6 +108,34 @@
                                             placeholder="Enter New Data" value="{{ @$view->new_data }}"
                                             required>
                                     </div>
+                                    <div class="col-md-6">
+                                        <label for="" class="m-2 fw-bold">Views Graph Data <span
+                                                style="font-size: 14px;font-weight: 600;color: #ee1201;">*</span></label><br>
+                                        <textarea class="form-control" name="views_graph_data" id=""
+                                            placeholder="Enter Views Graph Data"
+                                            required>{{ @$view->views_graph_data }}</textarea>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="" class="m-2 fw-bold" Watch Time>Graph Data <span
+                                                style="font-size: 14px;font-weight: 600;color: #ee1201;">*</span></label><br>
+                                        <textarea class="form-control" name="watch_time_graph_data" id=""
+                                            placeholder="Enter Watch Time Graph Data"
+                                            required>{{ @$view->watch_time_graph_data }}</textarea>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="" class="m-2 fw-bold">Subscribers Graph Data <span
+                                                style="font-size: 14px;font-weight: 600;color: #ee1201;">*</span></label><br>
+                                        <textarea class="form-control" name="subscribers_graph_data" id=""
+                                            placeholder="Enter Subscribers Graph Data"
+                                            required>{{ @$view->subscribers_graph_data }}</textarea>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="" class="m-2 fw-bold">New Data Graph Data <span
+                                                style="font-size: 14px;font-weight: 600;color: #ee1201;">*</span></label><br>
+                                        <textarea class="form-control" name="new_data_graph_data" id=""
+                                            placeholder="Enter New Data Graph Data"
+                                            required>{{ @$view->new_data_graph_data }}</textarea>
+                                    </div>
                                     <div class="col-md-3">
                                         <label for="" class="m-2 fw-bold">Duration <span
                                                 style="font-size: 14px;font-weight: 600;color: #ee1201;">*</span></label><br>
@@ -126,13 +154,6 @@
                                             <option value="10" {{ old('duration', @$view->duration) == '10' ? 'selected' : '' }}>November 2024</option>
                                             <option value="11" {{ old('duration', @$view->duration) == '11' ? 'selected' : '' }}>Custom</option>
                                         </select>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="" class="m-2 fw-bold">Graph Data <span
-                                                style="font-size: 14px;font-weight: 600;color: #ee1201;">*</span></label><br>
-                                        <textarea class="form-control" name="graph_data" id=""
-                                            placeholder="Enter Graph Data"
-                                            required>{{ @$view->graph_data }}</textarea>
                                     </div>
                                 </div>
                             </div>
