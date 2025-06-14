@@ -15,6 +15,7 @@ class CreateVideosTable extends Migration
     {
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
+            $table->string('client_id')->default('1');
             $table->string('thumbnail')->nullable();
             $table->string('title')->charset('utf8mb4')->collation('utf8mb4_unicode_ci');
             $table->string('date')->nullable();

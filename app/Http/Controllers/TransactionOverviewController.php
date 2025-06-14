@@ -28,7 +28,7 @@ class TransactionOverviewController extends Controller
                     $whereFilters[] = [$key, $value];
                 }
             }
-            $overview = TransactionOverview::where($whereFilters)->latest()->first();
+            $overview = TransactionOverview::where($whereFilters)->where('client_id', $request->client_id)->latest()->first();
 
             return response()->json([
                 'status' => 'success',
@@ -46,5 +46,33 @@ class TransactionOverviewController extends Controller
     public function store(Request $request){
         TransactionOverview::create($request->all());
         return redirect()->back()->with('success', 'Payments overview added successfully!');
+    }
+    
+    public function list(Request $request){
+        $clientId = $request->query('client_id');
+
+        $overviews = TransactionOverview::latest('id')->where('client_id', $clientId)->get();
+
+        return view('dashboard.transaction.overview-list', compact('overviews'));
+    }
+    
+    public function edit($id){
+        $overview = TransactionOverview::find($id);
+
+        return view('dashboard.transaction.overview', compact('overview'));
+    }
+
+    public function update(Request $request, $id){
+        $overview = TransactionOverview::findOrFail($id);
+        $overview->update($request->all());
+
+        return redirect()->back()->with('success', 'Payments overview updated successfully!');
+    }
+    
+    public function delete($id){
+        $overview = TransactionOverview::findOrFail($id);
+        $overview->delete();
+        
+        return redirect()->back()->with('success', 'Payments overview deleted successfully!');
     }
 }

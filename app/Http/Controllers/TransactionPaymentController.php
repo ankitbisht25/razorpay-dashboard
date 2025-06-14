@@ -19,8 +19,9 @@ class TransactionPaymentController extends Controller
         return view('dashboard.transaction.payments');
     }
 
-    public function list(){
-        $payments = TransactionPayment::latest('id')->get();
+    public function list(Request $request){
+        $clientId = $request->query('client_id');
+        $payments = TransactionPayment::latest('id')->where('client_id', $clientId)->get();
 
         return view('dashboard.transaction.list', compact('payments'));
     }
@@ -54,7 +55,7 @@ class TransactionPaymentController extends Controller
                     $whereFilters[] = [$key, $value];
                 }
             }
-            $payment = TransactionPayment::where($whereFilters)->latest('id')->get();
+            $payment = TransactionPayment::where($whereFilters)->where('client_id', $request->client_id)->latest('id')->get();
 
             return response()->json([
                 'status' => 'success',

@@ -15,6 +15,7 @@ class CreateTransactionPaymentsTable extends Migration
     {
         Schema::create('transaction_payments', function (Blueprint $table) {
             $table->id();
+            $table->string('client_id')->default('1');
             $table->string('payment_id');
             $table->string('bank_rrn');
             $table->string('customer_detail');

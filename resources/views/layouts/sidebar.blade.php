@@ -50,7 +50,7 @@
         <ul class="metismenu left-sidenav-menu">
             <li class="menu-label mt-0">Main</li>
             <li>
-                <a href="{{url('/dashboard')}}"> <i data-feather="home" class="align-self-center menu-icon"></i><span>Dashboard</span></a>
+                <a href="{{url('/dashboard-data-list')}}"> <i data-feather="home" class="align-self-center menu-icon"></i><span>Dashboard</span></a>
                 <!-- <ul class="nav-second-level" aria-expanded="false">
                     <li class="nav-item"><a class="nav-link" href="index.html"><i class="ti-control-record"></i>Registration</a></li>
                     <li class="nav-item"><a class="nav-link" href="sales-index.html"><i class="ti-control-record"></i>Sales</a></li> 
@@ -60,7 +60,7 @@
             <li>
                 <a href="javascript: void(0);"><i data-feather="grid" class="align-self-center menu-icon"></i><span>Transactions</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                 <ul class="nav-second-level" aria-expanded="false">
-                    <li class="nav-item"><a class="nav-link" href="{{url('/transaction-overview')}}"><i class="ti-control-record"></i>Overview</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url('/transaction-overview-list')}}"><i class="ti-control-record"></i>Overview</a></li>
                         
                     <li class="nav-item"><a class="nav-link" href="{{url('/transaction-payments-list')}}"><i class="ti-control-record"></i>Payments</a></li>
                 </ul>
@@ -68,7 +68,7 @@
             <li>
                 <a href="javascript: void(0);"><i data-feather="grid" class="align-self-center menu-icon"></i><span>Settlements</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                 <ul class="nav-second-level" aria-expanded="false">
-                    <li class="nav-item"><a class="nav-link" href="{{url('/settlement-overview')}}"><i class="ti-control-record"></i>Overview</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url('/settlement-overview-list')}}"><i class="ti-control-record"></i>Overview</a></li>
                         
                     <li class="nav-item"><a class="nav-link" href="{{url('/settlement-payments-list')}}"><i class="ti-control-record"></i>Payments</a></li>
                 </ul>
@@ -82,6 +82,11 @@
 
                     <li class="nav-item"><a class="nav-link" href="{{url('/youtube/user-videos')}}"><i class="ti-control-record"></i>Videos</a></li>
                 </ul>
+            </li>
+
+            
+            <li>
+                <a href="{{url('/clients')}}"> <i data-feather="home" class="align-self-center menu-icon"></i><span>Clients</span></a>
             </li>
 
             <hr class="hr-dashed hr-menu">          

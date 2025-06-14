@@ -15,6 +15,7 @@ class CreateSettlementsTable extends Migration
     {
         Schema::create('settlements', function (Blueprint $table) {
             $table->id();
+            $table->string('client_id')->default('1');
             $table->string('settlement_id');
             $table->string('utr_no');
             $table->timestamp('created_on')->useCurrent();

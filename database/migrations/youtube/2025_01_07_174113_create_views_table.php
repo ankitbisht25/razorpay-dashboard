@@ -15,12 +15,15 @@ class CreateViewsTable extends Migration
     {
         Schema::create('views', function (Blueprint $table) {
             $table->id();
+            $table->string('client_id')->default('1');
             $table->string('views')->nullable();
             $table->string('views_label')->nullable();
             $table->string('watch_hrs')->nullable();
             $table->string('watch_hrs_label')->nullable();
+            $table->string('watch_hrs_status')->nullable();
             $table->string('subscribers')->nullable();
             $table->string('subscribers_label')->nullable();
+            $table->string('subscribers_status')->nullable();
             $table->string('new_data')->nullable();
             $table->string('new_data_label')->nullable();
             $table->text('views_graph_data')->nullable();

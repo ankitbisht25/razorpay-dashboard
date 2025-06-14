@@ -9,8 +9,9 @@ use Illuminate\Support\Facades\Log;
 
 class SettlementOverviewController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $clientId = $request->query('client_id');
         return view('dashboard.settlement.overview');
     }
 
@@ -23,7 +24,7 @@ class SettlementOverviewController extends Controller
                     $whereFilters[] = [$key, $value];
                 }
             }
-            $overview = SettlementOverview::where($whereFilters)->latest()->first();
+            $overview = SettlementOverview::where($whereFilters)->where('client_id', $request->client_id)->latest()->first();
 
             return response()->json([
                 'status' => 'success',
@@ -41,5 +42,32 @@ class SettlementOverviewController extends Controller
     public function store(Request $request){
         SettlementOverview::create($request->all());
         return redirect()->back()->with('success', 'Settlement overview added successfully!');
+    }
+    
+    public function list(Request $request){
+        $clientId = $request->query('client_id');
+        $overviews = SettlementOverview::latest('id')->where('client_id', $clientId)->get();
+
+        return view('dashboard.settlement.overview-list', compact('overviews'));
+    }
+    
+    public function edit($id){
+        $overview = SettlementOverview::find($id);
+
+        return view('dashboard.settlement.overview', compact('overview'));
+    }
+
+    public function update(Request $request, $id){
+        $overview = SettlementOverview::findOrFail($id);
+        $overview->update($request->all());
+
+        return redirect()->back()->with('success', 'Settlement updated successfully!');
+    }
+    
+    public function delete($id){
+        $overview = SettlementOverview::findOrFail($id);
+        $overview->delete();
+        
+        return redirect()->back()->with('success', 'Settlement deleted successfully!');
     }
 }

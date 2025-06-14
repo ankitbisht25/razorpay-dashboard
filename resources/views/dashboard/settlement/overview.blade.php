@@ -33,7 +33,11 @@
                                 {{ session('success') }}
                             </div>
                         @endif
-                        <form action="{{ route('settlement-overview-store') }}" method="post">
+                        @if (c($overview))
+                            <form action="{{ route('settlement-overview-update', $overview->id) }}" method="post">
+                        @else
+                            <form action="{{ route('settlement-overview-store') }}" method="post">
+                        @endif
                             @csrf
                             <div class="row mx-3 ">
 
@@ -45,22 +49,27 @@
                                         <div class="col-md-3">
                                             <label for="" class="m-2 fw-bold">Current Balance</label><br>
                                             <input type="number" class="form-control" name="current_balance" id=""
-                                                placeholder="Enter Current Balance" required>
+                                                placeholder="Enter Current Balance" value="{{ @$overview->current_balance }}" required>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="" class="m-2 fw-bold">Settlement Due Today</label><br>
                                             <input type="number" class="form-control" name="settlement_due_today" id=""
-                                                placeholder="Enter Settlement Due Today" required>
+                                                placeholder="Enter Settlement Due Today" value="{{ @$overview->settlement_due_today }}" required>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="" class="m-2 fw-bold">Previous Settlement</label><br>
                                             <input type="number" class="form-control" name="previous_settlement" id=""
-                                                placeholder="Enter Previous Settlement" required>
+                                                placeholder="Enter Previous Settlement" value="{{ @$overview->previous_settlement }}" required>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="" class="m-2 fw-bold">Upcoming Settlement</label><br>
                                             <input type="number" class="form-control" name="upcoming_settlement" id=""
-                                                placeholder="Enter Upcoming Settlement" required>
+                                                placeholder="Enter Upcoming Settlement" value="{{ @$overview->upcoming_settlement }}" required>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="" class="m-2 fw-bold">Refresh Time</label><br>
+                                            <input type="text" class="form-control" name="refresh_time" id=""
+                                                placeholder="Enter Refresh Time" value="{{ @$overview->refresh_time }}" required>
                                         </div>
                                     </div>
                                 </div>

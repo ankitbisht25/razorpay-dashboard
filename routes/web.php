@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SettlementController;
 use App\Http\Controllers\SettlementOverviewController;
@@ -37,6 +38,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/transaction-overview', [TransactionOverviewController::class, 'index'])->name('transaction-overview');
     Route::post('/transaction-overview-store', [TransactionOverviewController::class, 'store'])->name('transaction-overview-store');
+    Route::get('/transaction-overview-list', [TransactionOverviewController::class, 'list'])->name('transaction-overview-list');
+    Route::get('/transaction-overview-edit/{id}', [TransactionOverviewController::class, 'edit'])->name('transaction-overview-edit');
+    Route::post('/transaction-overview-update/{id}', [TransactionOverviewController::class, 'update'])->name('transaction-overview-update');
+    Route::get('/transaction-overview-delete/{id}', [TransactionOverviewController::class, 'delete'])->name('transaction-overview-delete');
 
 
     Route::get('/settlement-payments', [SettlementController::class, 'index'])->name('settlement-payments');
@@ -48,6 +53,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/settlement-overview', [SettlementOverviewController::class, 'index'])->name('settlement-overview');
     Route::post('/settlement-overview-store', [SettlementOverviewController::class, 'store'])->name('settlement-overview-store');
+    Route::get('/settlement-overview-list', [SettlementOverviewController::class, 'list'])->name('settlement-overview-list');
+    Route::get('/settlement-overview-edit/{id}', [SettlementOverviewController::class, 'edit'])->name('settlement-overview-edit');
+    Route::post('/settlement-overview-update/{id}', [SettlementOverviewController::class, 'update'])->name('settlement-overview-update');
+    Route::get('/settlement-overview-delete/{id}', [SettlementOverviewController::class, 'delete'])->name('settlement-overview-delete');
 
     Route::get('/home', [DashboardController::class, 'index'])->name('home');
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
@@ -103,5 +112,19 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/delete/{id}', [VideoController::class, 'destroy'])->name('destroy');
         });
 
+    });
+
+    
+    Route::group([
+        'prefix' => 'clients',
+        'as' => 'clients.'
+    ], function () {
+        Route::get('/', [ClientController::class, 'index'])->name('index');
+        Route::get('/create', [ClientController::class, 'create'])->name('create');
+        Route::post('/', [ClientController::class, 'store'])->name('store');
+        Route::get('/{id}', [ClientController::class, 'show'])->name('show');
+        Route::get('/{user_profile}/edit', [ClientController::class, 'edit'])->name('edit');
+        Route::post('/{id}', [ClientController::class, 'update'])->name('update');
+        Route::get('/delete/{id}', [ClientController::class, 'destroy'])->name('destroy');
     });
 });

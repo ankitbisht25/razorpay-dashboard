@@ -51,6 +51,7 @@ class UserProfileController extends Controller
             'channel_name' => 'required|string|max:255',
             'subscribers' => 'required',
             'views' => 'required',
+            'graph_data' => 'required',
             'profile_logo' => 'nullable|image|mimes:jpg,jpeg,png',
         ]);
 
@@ -81,6 +82,7 @@ class UserProfileController extends Controller
             'channel_name' => 'required|string|max:255',
             'subscribers' => 'required',
             'views' => 'required',
+            'graph_data' => 'required',
             'profile_logo' => 'nullable|image|mimes:jpg,jpeg,png',
         ]);
 

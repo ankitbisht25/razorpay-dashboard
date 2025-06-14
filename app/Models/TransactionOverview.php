@@ -9,5 +9,5 @@ class TransactionOverview extends Model
 {
     use HasFactory;
     protected $table = 'transaction_overviews';
-    protected $fillable = ['collected_amount', 'captured_payment', 'refunds', 'processed', 'disputes', 'open', 'under_review', 'failed_payments', 'orders', 'graph_data', 'duration'];
+    protected $fillable = ['client_id', 'collected_amount', 'captured_payment', 'refunds', 'processed', 'disputes', 'open', 'under_review', 'failed_payments', 'orders', 'graph_data', 'duration'];
 }

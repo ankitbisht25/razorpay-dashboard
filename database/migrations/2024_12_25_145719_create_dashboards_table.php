@@ -15,6 +15,7 @@ class CreateDashboardsTable extends Migration
     {
         Schema::create('dashboards', function (Blueprint $table) {
             $table->id();
+            $table->string('client_id')->default('1');
             $table->string('user_name');
             $table->decimal('current_balance', 10, 2);
             $table->decimal('last_settlement', 10, 2);

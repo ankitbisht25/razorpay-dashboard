@@ -15,10 +15,12 @@ class CreateUserProfilesTable extends Migration
     {
         Schema::create('user_profiles', function (Blueprint $table) {
             $table->id();
+            $table->string('client_id')->default('1');
             $table->string('channel_name');
             $table->string('subscribers');
             $table->string('views')->default('0');
             $table->string('profile_logo')->nullable();
+            $table->text('graph_data')->nullable();
             $table->timestamps();
         });
     }

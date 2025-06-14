@@ -9,5 +9,5 @@ class SettlementOverview extends Model
 {
     use HasFactory;
     protected $table = 'settlement_overviews';
-    protected $fillable = ['current_balance', 'settlement_due_today', 'previous_settlement', 'upcoming_settlement'];
+    protected $fillable = ['client_id', 'current_balance', 'settlement_due_today', 'previous_settlement', 'upcoming_settlement', 'refresh_time'];
 }

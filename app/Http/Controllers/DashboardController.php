@@ -14,8 +14,9 @@ class DashboardController extends Controller
         return view('dashboard.dashboard.create');
     }
 
-    public function list(){
-        $payments = Dashboard::latest('id')->get();
+    public function list(Request $request){
+        $clientId = $request->query('client_id');
+        $payments = Dashboard::latest('id')->where('client_id', $clientId)->get();
 
         return view('dashboard.dashboard.list', compact('payments'));
     }
@@ -49,7 +50,7 @@ class DashboardController extends Controller
                     $whereFilters[] = [$key, $value];
                 }
             }
-            $settlement = Dashboard::where($whereFilters)->latest('id')->first();
+            $settlement = Dashboard::where($whereFilters)->where('client_id', $request->client_id)->latest('id')->first();
 
             return response()->json([
                 'status' => 'success',

@@ -5,11 +5,13 @@
             <nav class="navbar-custom">    
                 <ul class="list-unstyled topbar-nav float-right mb-0">  
                     <li class="dropdown hide-phone">
+                        <span class="nav-link dropdown-toggle arrow-none waves-light waves-effect">
+                           Client ID: {{ session('client_id') }}
+                        </span>
                         <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown" href="#" role="button"
                             aria-haspopup="false" aria-expanded="false">
                             <i data-feather="search" class="topbar-icon"></i>
                         </a>
-                        
                         <div class="dropdown-menu dropdown-menu-right dropdown-lg p-0">
                             <!-- Top Search Bar -->
                             <div class="app-search-topbar">

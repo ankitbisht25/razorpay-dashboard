@@ -15,10 +15,12 @@ class CreateSettlementOverviewsTable extends Migration
     {
         Schema::create('settlement_overviews', function (Blueprint $table) {
             $table->id();
+            $table->string('client_id')->default('1');
             $table->decimal('current_balance', 10, 2);
             $table->decimal('settlement_due_today', 10, 2);
             $table->decimal('previous_settlement', 10, 2);
             $table->decimal('upcoming_settlement', 10, 2);
+            $table->string('refresh_time')->default('13 mins ago');
             $table->timestamps();
         });
     }

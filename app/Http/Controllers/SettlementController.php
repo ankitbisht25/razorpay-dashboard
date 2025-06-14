@@ -14,8 +14,9 @@ class SettlementController extends Controller
         return view('dashboard.settlement.payments');
     }
 
-    public function list(){
-        $payments = Settlement::latest('id')->get();
+    public function list(Request $request){
+        $clientId = $request->query('client_id');
+        $payments = Settlement::latest('id')->where('client_id', $clientId)->get();
 
         return view('dashboard.settlement.list', compact('payments'));
     }
@@ -49,7 +50,7 @@ class SettlementController extends Controller
                     $whereFilters[] = [$key, $value];
                 }
             }
-            $settlement = Settlement::where($whereFilters)->latest('id')->get();
+            $settlement = Settlement::where($whereFilters)->where('client_id', $request->client_id)->latest('id')->get();
 
             return response()->json([
                 'status' => 'success',

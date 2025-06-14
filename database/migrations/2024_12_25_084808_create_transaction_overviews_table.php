@@ -15,6 +15,7 @@ class CreateTransactionOverviewsTable extends Migration
     {
         Schema::create('transaction_overviews', function (Blueprint $table) {
             $table->id();
+            $table->string('client_id')->default('1');
             $table->decimal('collected_amount', 10, 2);
             $table->integer('captured_payment');
             $table->decimal('refunds', 10, 2);
@@ -23,7 +24,7 @@ class CreateTransactionOverviewsTable extends Migration
             $table->integer('open');
             $table->integer('under_review');
             $table->integer('failed_payments');
-            $table->decimal('orders', 10, 2);
+            $table->string('orders');
             $table->text('graph_data')->nullable(true);
             $table->string('duration');
             $table->timestamps();

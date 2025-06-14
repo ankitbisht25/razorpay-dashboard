@@ -9,5 +9,5 @@ class Settlement extends Model
 {
     use HasFactory;
     protected $table = 'settlements';
-    protected $fillable = ['settlement_id', 'utr_no', 'created_on', 'net_Settlement', 'status', 'duration'];
+    protected $fillable = ['client_id', 'settlement_id', 'utr_no', 'created_on', 'net_Settlement', 'status', 'duration'];
 }

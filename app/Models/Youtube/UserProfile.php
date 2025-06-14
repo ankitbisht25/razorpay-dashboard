@@ -9,5 +9,5 @@ class UserProfile extends Model
 {
     use HasFactory;
     protected $table = 'user_profiles';
-    protected $fillable = ['channel_name', 'subscribers', 'views', 'profile_logo'];
+    protected $fillable = ['client_id', 'channel_name', 'subscribers', 'views', 'profile_logo', 'graph_data'];
 }

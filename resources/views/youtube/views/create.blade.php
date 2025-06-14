@@ -81,6 +81,13 @@
                                             required>
                                     </div>
                                     <div class="col-md-3">
+                                        <label for="" class="m-2 fw-bold">Watch Hrs Status(0=>Down,1=>Up) <span
+                                                style="font-size: 14px;font-weight: 600;color: #ee1201;">*</span></label><br>
+                                        <input type="text" class="form-control" name="watch_hrs_status" id=""
+                                            placeholder="Enter Watch Hrs Status" value="{{ @$view->watch_hrs_status }}"
+                                            required>
+                                    </div>
+                                    <div class="col-md-3">
                                         <label for="" class="m-2 fw-bold">Subscribers Label <span
                                                 style="font-size: 14px;font-weight: 600;color: #ee1201;">*</span></label><br>
                                         <input type="text" class="form-control" name="subscribers_label" id=""
@@ -92,6 +99,13 @@
                                                 style="font-size: 14px;font-weight: 600;color: #ee1201;">*</span></label><br>
                                         <input type="text" class="form-control" name="subscribers" id=""
                                             placeholder="Enter Subscribers" value="{{ @$view->subscribers }}"
+                                            required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="" class="m-2 fw-bold">Subscribers Status(0=>Down,1=>Up) <span
+                                                style="font-size: 14px;font-weight: 600;color: #ee1201;">*</span></label><br>
+                                        <input type="text" class="form-control" name="subscribers_status" id=""
+                                            placeholder="Enter Subscribers Status" value="{{ @$view->subscribers_status }}"
                                             required>
                                     </div>
                                     <div class="col-md-3">

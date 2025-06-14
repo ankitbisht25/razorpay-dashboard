@@ -9,5 +9,5 @@ class Video extends Model
 {
     use HasFactory;
     protected $table = 'videos';
-    protected $fillable = ['thumbnail', 'title', 'date', 'average_view', 'views'];
+    protected $fillable = ['client_id', 'thumbnail', 'title', 'date', 'average_view', 'views'];
 }
