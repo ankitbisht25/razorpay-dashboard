@@ -10,9 +10,10 @@ use Illuminate\Support\Facades\Log;
 
 class ViewsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $views = View::latest('id')->get();
+        $clientId = $request->query('client_id');
+        $views = View::latest('id')->where('client_id', $clientId)->get();
         return view('youtube.views.list', compact('views'));
     }
 
@@ -30,7 +31,7 @@ class ViewsController extends Controller
                     $whereFilters[] = [$key, $value];
                 }
             }
-            $views = View::where($whereFilters)->latest('id')->first();
+            $views = View::where($whereFilters)->where('client_id', $request->client_id)->latest('id')->first();
 
             return response()->json([
                 'status' => 'success',

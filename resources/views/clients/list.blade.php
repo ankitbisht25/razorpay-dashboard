@@ -51,6 +51,7 @@
                                 <tr>
                                     <th width="50px">S. No.</th>
                                     <th>Clients</th>
+                                    <th>Switch Client</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -58,6 +59,14 @@
                                     <tr>
                                         <td>{{ $client->id }}</td>
                                         <td>{{ $client->name }}</td>
+                                        <td>
+                                            <form method="GET" action="{{ url()->current() }}">
+                                                <input type="hidden" name="client_id" value="{{ $client->id }}">
+                                                <button type="submit" class="btn btn-primary">
+                                                    Select Client
+                                                </button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 @endforeach
                         </table>

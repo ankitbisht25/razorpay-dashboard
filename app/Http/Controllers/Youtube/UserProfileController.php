@@ -10,9 +10,10 @@ use Illuminate\Support\Facades\Log;
 
 class UserProfileController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $profiles = UserProfile::latest('id')->get();
+        $clientId = $request->query('client_id');
+        $profiles = UserProfile::latest('id')->where('client_id', $clientId)->get();
         return view('youtube.profile.list', compact('profiles'));
     }
 
@@ -30,7 +31,7 @@ class UserProfileController extends Controller
                     $whereFilters[] = [$key, $value];
                 }
             }
-            $UserProfile = UserProfile::where($whereFilters)->latest('id')->first();
+            $UserProfile = UserProfile::where($whereFilters)->where('client_id', $request->client_id)->latest('id')->first();
 
             return response()->json([
                 'status' => 'success',
