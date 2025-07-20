@@ -84,7 +84,7 @@
                                                 style="font-size: 14px;font-weight: 600;color: #ee1201;">*</span></label><br>
                                         <textarea class="form-control" name="graph_data" id=""
                                             placeholder="Enter Graph Data"
-                                            required>{{ @$view->graph_data }}</textarea>
+                                            required>{{ @$profile->graph_data }}</textarea>
                                     </div>
                                 </div>
                             </div>

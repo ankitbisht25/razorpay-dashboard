@@ -33,7 +33,7 @@
                                 {{ session('success') }}
                             </div>
                         @endif
-                        @if (c($overview))
+                        @if (isset($overview))
                             <form action="{{ route('settlement-overview-update', $overview->id) }}" method="post">
                         @else
                             <form action="{{ route('settlement-overview-store') }}" method="post">
